@@ -1,9 +1,181 @@
-body {
-  font-family: Arial, sans-serif;
+@import 'utils/variables';
+@import 'utils/mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
+body {
+  background-color: $cream-bg;
+}
+
+.page-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 600px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: $pure-white;
+  display: flex;
+
+  &__content {
+    .card__wrapper {
+      margin: 0 auto;
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__type {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.42em;
+    color: $aurometal-saurus;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-family: $second-font-family;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: $gunmetal;
+    max-width: 236px;
+  }
+
+  &__description {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 164%;
+    color: $aurometal-saurus;
+    max-width: 236px;
+  }
+
+  &__image {
+    display: block;
+    background-image: url('../images/image-product-desktop.jpg');
+    width: 300px;
+    height: 100%;
+    background-size: cover;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    max-width: 194px;
+    gap: 19px;
+
+    &--new {
+      font-family: $second-font-family;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 100%;
+      color: $deep-aquamarine;
+    }
+
+    &--old {
+      font-family: $font-family;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 177%;
+      text-decoration: line-through;
+      color: $aurometal-saurus;
+    }
+  }
+
+  &__button {
+    width: 236px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border: none;
+    background: $deep-aquamarine;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: $deep-aquamarine-hover;
+      transition: 0.4s ease-out;
+    }
+
+    &-image {
+      width: 14px;
+      height: 16px;
+    }
+
+    &-text {
+      font-family: $font-family;
+      font-weight: 700;
+      font-size: 14px;
+      color: $pure-white;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  body {
+    height: auto;
+  }
+  .page-container {
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 50px;
+  }
+
+  .card__wrapper {
+    padding: 24px;
+  }
+  .card {
+    grid-template-columns: 1fr;
+    width: 345px;
+    height: auto;
+    display: block;
+
+    &__image {
+      width: 100%;
+      height: 240px;
+      background-image: url('../images/image-product-mobile.jpg');
+      background-size: cover;
+
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 10px;
+    }
+
+    &__type {
+      margin-bottom: 12px;
+    }
+
+    &__title {
+      margin-bottom: 16px;
+      max-width: 295px;
+    }
+
+    &__description {
+      margin-bottom: 24px;
+      max-width: 295px;
+    }
+
+    &__button {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
 }

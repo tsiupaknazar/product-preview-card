@@ -2,13 +2,14 @@
   "name": "product-preview-card",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "prettier": "prettier --write 'src/**/*.{js,scss,html}'",
     "stylelint": "stylelint 'src/**/*.scss'",
     "bemlint": "bemlint 'src/**/*.scss'",
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://tsiupaknazar.github.io/product-preview-card/",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
     "bemlint": "^1.7.0",
     "gh-pages": "^6.1.1",
     "parcel": "^2.12.0",
