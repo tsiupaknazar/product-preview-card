@@ -1,5 +1,5 @@
-@import './utils/variables';
-@import './utils/mixins';
+@import "./utils/variables";
+@import "./utils/mixins";
 
 * {
   margin: 0;
@@ -12,9 +12,7 @@ body {
 }
 
 .page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center(column, center, center);
   height: 100vh;
 }
 
@@ -38,35 +36,23 @@ body {
   }
 
   &__type {
-    font-family: $font-family;
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.42em;
-    color: $aurometal-saurus;
+    @include typography($font-family, 12px, 500, 0.42em, 0, $aurometal-saurus);
     text-transform: uppercase;
   }
 
   &__title {
-    font-family: $second-font-family;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 100%;
-    color: $gunmetal;
+    @include typography($second-font-family, 32px, 700, 0, 100%, $gunmetal);
     max-width: 236px;
   }
 
   &__description {
-    font-family: $font-family;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 164%;
-    color: $aurometal-saurus;
+    @include typography($font-family, 14px, 500, 0, 164%, $aurometal-saurus);
     max-width: 236px;
   }
 
   &__image {
     display: block;
-    background-image: url('../images/image-product-desktop.jpg');
+    background-image: url("../images/image-product-desktop.jpg");
     width: 300px;
     height: 100%;
     background-size: cover;
@@ -76,45 +62,28 @@ body {
   }
 
   &__price {
-    display: flex;
-    align-items: center;
+    @include flex-center(row, center, center);
     max-width: 194px;
     gap: 19px;
 
     &--new {
-      font-family: $second-font-family;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 100%;
-      color: $deep-aquamarine;
+      @include typography(
+        $second-font-family,
+        32px,
+        700,
+        0,
+        100%,
+        $deep-aquamarine
+      );
     }
 
     &--old {
-      font-family: $font-family;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 177%;
-      text-decoration: line-through;
-      color: $aurometal-saurus;
+      @include typography($font-family, 13px, 500, 0, 177%, $aurometal-saurus, line-through);
     }
   }
 
   &__button {
-    width: 236px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 11px;
-    border: none;
-    background: $deep-aquamarine;
-    border-radius: 8px;
-    cursor: pointer;
-
-    &:hover {
-      background: $deep-aquamarine-hover;
-      transition: 0.4s ease-out;
-    }
+    @include button($deep-aquamarine, $deep-aquamarine-hover);
 
     &-image {
       width: 14px;
@@ -122,10 +91,7 @@ body {
     }
 
     &-text {
-      font-family: $font-family;
-      font-weight: 700;
-      font-size: 14px;
-      color: $pure-white;
+      @include typography($font-family, 14px, 700, 0, 164%, $pure-white);
     }
   }
 }
@@ -152,7 +118,7 @@ body {
     &__image {
       width: 100%;
       height: 240px;
-      background-image: url('../images/image-product-mobile.jpg');
+      background-image: url("../images/image-product-mobile.jpg");
       background-size: cover;
 
       border-bottom-left-radius: 0;
